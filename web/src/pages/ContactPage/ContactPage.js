@@ -5,6 +5,7 @@ import {
   Submit,
   FieldError,
   Label,
+  FormError,
 } from '@redwoodjs/web'
 import { useMutation } from '@redwoodjs/web'
 import BlogLayout from 'src/layouts/BlogLayout'
@@ -31,7 +32,11 @@ const ContactPage = (props) => {
 
   return (
     <BlogLayout>
-      <Form onSubmit={onSubmit} validation={{ mode: 'onBlur' }}>
+      <Form onSubmit={onSubmit} validation={{ mode: 'onBlur' }} error={error}>
+        <FormError
+          error={error}
+          wrapperStyle={{ color: 'red', backgroundColor: 'lavenderblush' }}
+        />
         <Label
           name="name"
           style={{ display: 'block' }}
@@ -60,10 +65,6 @@ const ContactPage = (props) => {
           errorStyle={{ display: 'block', borderColor: 'red' }}
           validation={{
             required: true,
-            pattern: {
-              value: /[^@]+@[^.]+\..+/,
-              message: 'Please enter a valid email address',
-            },
           }}
         />
         <FieldError name="email" style={{ color: 'red' }} />
