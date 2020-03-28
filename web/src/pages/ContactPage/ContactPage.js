@@ -12,17 +12,29 @@ const ContactPage = (props) => {
         <label htmlFor="name" style={{ display: 'block' }}>
           Name
         </label>
-        <TextField name="name" style={{ display: 'block' }} />
+        <TextField
+          name="name"
+          style={{ display: 'block' }}
+          validation={{ required: true }}
+        />
 
         <label htmlFor="email" style={{ display: 'block' }}>
           Email
         </label>
-        <TextField name="email" style={{ display: 'block' }} />
+        <TextField
+          name="email"
+          style={{ display: 'block' }}
+          validation={{ required: true }}
+        />
 
         <label htmlFor="message" style={{ display: 'block' }}>
           Message
         </label>
-        <TextAreaField name="message" style={{ display: 'block' }} />
+        <TextAreaField
+          name="message"
+          style={{ display: 'block' }}
+          validation={{ required: true }}
+        />
 
         <Submit style={{ display: 'block' }}>Save</Submit>
       </Form>
