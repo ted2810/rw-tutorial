@@ -1,4 +1,11 @@
-import { Form, TextField, TextAreaField, Submit } from '@redwoodjs/web'
+import {
+  Form,
+  TextField,
+  TextAreaField,
+  Submit,
+  FieldError,
+  Label,
+} from '@redwoodjs/web'
 import BlogLayout from 'src/layouts/BlogLayout'
 
 const ContactPage = (props) => {
@@ -9,32 +16,50 @@ const ContactPage = (props) => {
   return (
     <BlogLayout>
       <Form onSubmit={onSubmit}>
-        <label htmlFor="name" style={{ display: 'block' }}>
+        <Label
+          name="name"
+          style={{ display: 'block' }}
+          errorStyle={{ display: 'block', color: 'red' }}
+        >
           Name
-        </label>
+        </Label>
         <TextField
           name="name"
           style={{ display: 'block' }}
+          errorStyle={{ display: 'block', borderColor: 'red' }}
           validation={{ required: true }}
         />
+        <FieldError name="name" style={{ color: 'red' }} />
 
-        <label htmlFor="email" style={{ display: 'block' }}>
+        <Label
+          name="email"
+          style={{ display: 'block' }}
+          errorStyle={{ display: 'block', color: 'red' }}
+        >
           Email
-        </label>
+        </Label>
         <TextField
           name="email"
           style={{ display: 'block' }}
+          errorStyle={{ display: 'block', borderColor: 'red' }}
           validation={{ required: true }}
         />
+        <FieldError name="email" style={{ color: 'red' }} />
 
-        <label htmlFor="message" style={{ display: 'block' }}>
+        <Label
+          name="message"
+          style={{ display: 'block' }}
+          errorStyle={{ display: 'block', color: 'red' }}
+        >
           Message
-        </label>
+        </Label>
         <TextAreaField
           name="message"
           style={{ display: 'block' }}
+          errorStyle={{ display: 'block', borderColor: 'red' }}
           validation={{ required: true }}
         />
+        <FieldError name="message" style={{ color: 'red' }} />
 
         <Submit style={{ display: 'block' }}>Save</Submit>
       </Form>
